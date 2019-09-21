@@ -1,3 +1,6 @@
+# Created by https://www.gitignore.io/api/django
+
+### Django ###
 *.log
 *.pot
 *.pyc
@@ -8,6 +11,7 @@ db.sqlite3
 /static
 Pipfile
 Pipfile.lock
+dir_to_ignore/.idea
 *.xml
 *.reason.txt
 *.iml
