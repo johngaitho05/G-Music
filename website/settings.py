@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'website.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'socialwebdb',
+        'NAME': 'musicdb',
         'USER':'postgres',
         'PASSWORD':'jnjg5//9',
         'HOST':'localhost',
