@@ -11,3 +11,5 @@ db.sqlite3
 /static
 Pipfile
 Pipfile.lock
+*.xml
+*.iml
