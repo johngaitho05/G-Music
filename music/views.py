@@ -1,11 +1,7 @@
 from django.views import generic
-from .models import Album
+from .models import Album,Song
 from django.views.generic.edit import *
-from django.urls import reverse_lazy
-from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
-from django.views.generic import View
-from .forms import UserForm
+from django.urls import reverse,reverse_lazy
 
 
 class IndexView(generic.ListView):
@@ -36,34 +32,19 @@ class AlbumDelete(DeleteView):
     success_url = reverse_lazy('music:index')
 
 
-class UserFormView(View):
-    form_class = UserForm
-    template_name = 'music/registration_form.html'
+class SongCreate(CreateView):
+    model = Song
+    fields = ['album','song_title','song_file']
 
-    # display blank form
-    def get(self, request):
-        form = self.form_class(None)
-        return render(request, self.template_name, {'form': form})
+    def get_context_data(self, **kwargs):
+        context = super(SongCreate, self).get_context_data(**kwargs)
+        context['album_id'] = self.kwargs['album_id']
+        return context
 
-    # process form data
-    def post(self, request):
-        form = self.form_class(request.POST)
+    def get_success_url(self):
+        return reverse('music:detail', kwargs={'pk': self.object.album_id})
 
-        if form.is_valid():
-            user = form.save(commit=False)
 
-            # # cleaned (normalized) data
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
-            user.set_password(password)
-            user.save()
-
-            # returns user objects if credentials are correct
-            user = authenticate(username=username, password=password)
-            if user is not None:
-
-                if user.is_active:
-                    login(request, user)
-                    return redirect('music:index')
-
-        return render(request, self.template_name, {'form': form})
+class SongDelete(DeleteView):
+    model = Song
+    success_url = reverse_lazy('music:index')

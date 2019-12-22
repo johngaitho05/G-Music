@@ -10,8 +10,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
-{#    <link rel="stylesheet" href="{% static 'music/bootstrap.min.css' %}" />#}
-{#    <script type="text/javascript" src="{% static 'music/bootstrap.min.js' %}"></script>#}
     <link rel="stylesheet" type="text/css" href="{% static 'music/main.css' %}"/>
 </head>
 <body>
@@ -38,8 +36,17 @@
                     <button type="submit" class="btn btn-primary">Search</button>
                 </form>
                  <ul class="nav navbar-nav nav navbar-right">
-                     <li class=""><a href="{% url 'music:album-add' %}"><span class="glyphicon glyphicon-plus" aria-hidden="true"> Add Album</span></a></li>
-                     <li class=""><a href="#"><span class="glyphicon glyphicon-off" aria-hidden="true"> Logout</span></a></li>
+
+                     {% if user.is_authenticated %}
+                         <li class=""><a href="{% url 'music:album-add' %}"><span class="glyphicon glyphicon-plus" aria-hidden="true" style="word-spacing: -10px"> Add Album</span></a></li>
+                         <li class=""><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-off" aria-hidden="true"> Logout</span></a></li>
+                     {% else %}
+                         <li class="auth-links"><a href="{% url 'login' %}">Login</a></li>
+                         <li class="auth-links"><a href="{% url 'signup' %}">Register</a></li>
+
+                     {% endif %}
+
+
                  </ul>
                 </div>
                 </div>

@@ -1,22 +1,15 @@
-from django.conf.urls import url
+from django.urls import path
 from . import views
 
 app_name = 'music'
 
 urlpatterns = [
-    url(r'^$', views.UserFormView.as_view(), name='register'),
-
-    url(r'^home/$', views.IndexView.as_view(), name='index'),
-
-    url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
-
-    # music/album/add/
-    url(r'album/add/$', views.AlbumCreate.as_view(), name='album-add'),
-
-    # music/ablum/2/
-    url(r'album/(?P<pk>[0-9]+)/$', views.AlbumUpdate.as_view(), name='album-update'),
-
-    # music/album/2/delete
-    url(r'album/(?P<pk>[0-9]+)/delete/$', views.AlbumDelete.as_view(), name='album-delete'),
+    path('', views.IndexView.as_view(), name='index'),
+    path('Album/<int:pk>', views.DetailView.as_view(), name='detail'),
+    path('album/add/', views.AlbumCreate.as_view(), name='album-add'),
+    path('album/<int:pk>', views.AlbumUpdate.as_view(), name='album-update'),
+    path('album/<int:pk>/delete/', views.AlbumDelete.as_view(), name='album-delete'),
+    path('song/add/<int:album_id>', views.SongCreate.as_view(), name='song-add'),
+    path('song/<int:pk>/delete/', views.SongDelete.as_view(), name='song-delete'),
 
 ]

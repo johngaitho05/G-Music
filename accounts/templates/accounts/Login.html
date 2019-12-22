@@ -1,0 +1,37 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block css %}
+{% static  'accounts/style.css' %}
+{% endblock %}
+{% block body %}
+        <div class="col-md-4 col-sm-6 col-xs-12 offset-md-4 offset-sm-3" id="loginform">
+
+            <h3 class="text-center">Login Form</h3>
+            <br/>
+            {% if error  %}
+                 <span style="color:red;width:100%;height: 50px;">{{ error }}</span>
+                <br/>
+                {% elif message %}
+                <span style="color:darkgreen;">{{ message }}</span>
+                <br/>
+            {% endif %}
+            <form action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="phone"></label>
+                    <input type="text" name="username" class="form-control" placeholder="Username"/>
+                </div>
+                <div class="form-group">
+                    <label for="password"></label>
+                    <input type="password" class="form-control" placeholder="Password" name="password"/>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Login" class="btn btn-primary" style="width:100%"/>
+                </div>
+
+            </form>
+            <a href="{% url 'signup' %}">
+                <p class="text-center">Register</p>
+            </a>
+        </div>
+{% endblock %}

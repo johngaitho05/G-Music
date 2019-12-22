@@ -1,0 +1,38 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block css %}
+{% static  'accounts/style.css' %}
+{% endblock %}
+{% block body %}
+        <div class="col-md-4 col-sm-6 col-xs-12 offset-md-4 offset-sm-3" id="loginform">
+
+            <h3 class="text-center">Sign-up Form </h3>
+        <br/>
+            {% if error  %}
+                 <span style="color:red;">{{ error }}</span>
+                <br/>
+            {% endif %}
+
+            <form action="{% url 'signup' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" name="username" class="form-control" placeholder="Username"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="email" class="form-control" placeholder="Email"/>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password1" class="form-control" placeholder="Password"/>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password2" class="form-control" placeholder="Confirm Password"/>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Sign up" class="btn btn-primary" style="width:100%"/>
+                </div>
+            </form>
+        <a href="{% url 'login' %}">
+                <p class="text-center">Login</p>
+            </a>
+        </div>
+{% endblock %}

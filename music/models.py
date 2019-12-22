@@ -1,12 +1,13 @@
 from django.db import models
 from django.urls import reverse
+import os
 
 
 class Album(models.Model):
     artist = models.CharField(max_length=250)
     album_title = models.CharField(max_length=500)
     genre = models.CharField(max_length=250)
-    album_logo = models.FileField()
+    album_logo = models.FileField(upload_to='images')
 
     def get_absolute_url(self):
         return reverse('music:index')
@@ -17,9 +18,12 @@ class Album(models.Model):
 
 class Song(models.Model):
     album = models.ForeignKey(Album, on_delete=models.CASCADE)
-    file_type = models.CharField(max_length=10)
     song_title = models.CharField(max_length=250)
-    is_favorite = models.BooleanField(default=False)
+    song_file = models.FileField(upload_to='songs')
+
+    def extension(self):
+        name, extension = os.path.splitext(self.song_file.name)
+        return extension[1:]
 
     def __str__(self):
         return self.song_title

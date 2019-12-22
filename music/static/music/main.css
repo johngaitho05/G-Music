@@ -1,3 +1,24 @@
 body{
     background: #e3e3e3;
 }
+.container{
+    width:90% !important;;
+}
+
+
+.auth-links a{
+    color:wheat !important;
+}
+.auth-links a:hover{
+    text-decoration: underline !important;
+}
+
+td  a:first-child{
+    padding-right: 50px;
+}
+.table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+    border: 1px solid #cdd029;
+}
+#songs-table{
+    margin-top: 30px;
+}

@@ -1,4 +1,53 @@
 {% extends 'music/base.html' %}
-    <title>{% block title %}Album details{% endblock %}</title>
+<title>{% block title %}Album details{% endblock %}</title>
 {% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <img src="{{ album.album_logo.url}}" alt="image" class="img-responsive" />
+                    <div class="caption">
+                        <h4>Title: {{ album.album_title }}</h4>
+                        <h4>Artist: {{ album.artist }}</h4>
+                        <a href="{% url 'music:album-update' album.id%}"><button type="button" class="btn btn-primary btn-sm">
+                            Edit
+                        </button></a>
+                        <form action="{% url 'music:album-delete' album.id%}" method="post" style="display: inline">
+                            {% csrf_token %}
+                            <input type="hidden" name="album_id" value="{{ album.id }}">
+                            <button type="submit" class="btn btn-primary btn-sm">
+                                Delete
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <h3 style='display: inline !important;'>Album songs</h3>
+                <button class="btn btn-primary pull-right">Add song</button>
+                <table class="table table-bordered table-condensed" id="songs-table">
+                    <thead>
+                    <tr class="success">
+                        <th>Song title</th>
+                        <th>File Type</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for song in album.song_set.all %}
+                        <tr>
+                            <td>{{song.song_title}}</td>
+                            <td>{{song.extension}}</td>
+                            <td style="max-width:50px;">
+                                <a href="#"><span class="glyphicon glyphicon-play"></span>Play</a>
+                                <a href="#"><span class="glyphicon glyphicon-trash"></span>Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
