@@ -1,14 +1,16 @@
 {% extends 'music/base.html' %}
-<title>{% block title %}Album details{% endblock %}</title>
+{% load static %}
+<title>{% block title %}G-Music ({{ album }}){% endblock %}</title>
 {% block body %}
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4 play-ground">
                 <div class="thumbnail">
                     <img src="{{ album.album_logo.url}}" alt="image" class="img-responsive" />
                     <div class="caption">
-                        <h4>Title: {{ album.album_title }}</h4>
-                        <h4>Artist: {{ album.artist }}</h4>
+                        <h4><b>Album title</b>: {{ album.album_title }}</h4>
+                        <h4><b>Artist</b>: {{ album.artist }}</h4>
+                        <h4><b>Genre</b>: {{ album.genre }}</h4>
                         <a href="{% url 'music:album-update' album.id%}"><button type="button" class="btn btn-primary btn-sm">
                             Edit
                         </button></a>
@@ -22,13 +24,30 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8 songs-container">
+                {% if to_play %}
+                    <div class="now-playing-">
+                        <h5><b>Now playing:</b>{{ to_play}}</h5>
+                        {% if to_play.extension == 'mp4' %}
+                            <video width="100%" height="240" autoplay controls>
+                                <source src="{{ to_play.song_file.url }}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        {% else %}
+                            <audio autoplay controls>
+                                <source src="{{ to_play.song_file.url }}" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        {% endif %}
+                    </div>
+                {% endif %}
                 <h3 style='display: inline !important;'>Album songs</h3>
-                <button class="btn btn-primary pull-right">Add song</button>
+                <a href="{% url 'music:song-add'  album.id %}"><button class="btn btn-primary pull-right">Add song</button></a>
                 <table class="table table-bordered table-condensed" id="songs-table">
                     <thead>
                     <tr class="success">
                         <th>Song title</th>
+                        <th>Artist</th>
                         <th>File Type</th>
                         <th>Action</th>
                     </tr>
@@ -37,15 +56,28 @@
                     {% for song in album.song_set.all %}
                         <tr>
                             <td>{{song.song_title}}</td>
+                            <td>{{song.artist}}</td>
                             <td>{{song.extension}}</td>
-                            <td style="max-width:50px;">
-                                <a href="#"><span class="glyphicon glyphicon-play"></span>Play</a>
-                                <a href="#"><span class="glyphicon glyphicon-trash"></span>Delete</a>
+                            <td id="action_column">
+                                <a class="play" href="javascript:{document.getElementById('play_song_{{ song.id }}').submit();}"><span class="glyphicon glyphicon-play"></span>Play</a>
+                                <a class="delete" href="javascript:{document.getElementById('delete_song').submit();}"><span class="glyphicon glyphicon-trash"></span>Delete</a>
                             </td>
                         </tr>
+                        <form method="post" action="{% url 'music:play_song' %}" id="play_song_{{ song.id }}">
+                            {% csrf_token %}
+                            <input type="hidden" name="song_id" value="{{ song.id }}"/>
+                            <input type="hidden" name="album_id" value="{{ song.album.id }}"/>
+                        </form>
+                        <form action="{% url 'music:song-delete' song.id%}" method="post" style="display: inline" id="delete_song">
+                            {% csrf_token %}
+                            <input type="hidden" name="album_id" value="{{ song.id }}">
+                        </form>
                     {% endfor %}
                     </tbody>
                 </table>
+                {% if not album.song_set.all %}
+                    <p class="text-center">No songs have been adeed to this album yet</p>
+                {% endif %}
             </div>
         </div>
     </div>

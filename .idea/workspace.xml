@@ -2,13 +2,48 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aabbcf4f-0a7a-4f98-961a-360a4117fa51" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/music/static/music/images/b1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/music/static/music/images/b10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/music/static/music/images/b11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/music/static/music/images/b13.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/music/static/music/images/b2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/music/static/music/images/b3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/music/static/music/images/b4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/music/static/music/images/b5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/music/static/music/images/b6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/music/static/music/images/b7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/music/static/music/images/b8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/music/static/music/images/b9.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/music/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/static/music/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/music/static/music/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/templates/music/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/music/templates/music/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/templates/music/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/music/templates/music/detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/templates/music/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/music/templates/music/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/templates/music/song_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/music/templates/music/song_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/music/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/music/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/website/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" module-name="G-Music" is-module-sdk="true" working-directory="$PROJECT_DIR$">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
@@ -35,23 +70,23 @@
     <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/accounts/templates/accounts" />
+    <property name="last_opened_file_path" value="$USER_HOME$/VSProjects/portfolio" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\John YK\Desktop\projects\G-Music\accounts\templates\accounts" />
+      <recent name="C:\Users\John YK\Desktop\projects\G-Music\accounts" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\John YK\PycharmProjects\G-Music\music\static\music\images" />
       <recent name="C:\Users\John YK\Desktop\projects\G-Music\accounts\templates\accounts" />
       <recent name="C:\Users\John YK\Desktop\projects\G-Music\accounts\static" />
       <recent name="C:\Users\John YK\Desktop\projects\G-Music" />
       <recent name="C:\Users\John YK\Desktop\projects\mediaweb" />
-      <recent name="C:\Users\John YK\Desktop\Django_Projects\mediaweb" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\John YK\Desktop\projects\G-Music\accounts\templates\accounts" />
-      <recent name="C:\Users\John YK\Desktop\projects\G-Music\accounts" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -143,12 +178,39 @@
       <workItem from="1576830257092" duration="426000" />
       <workItem from="1576831771150" duration="3604000" />
       <workItem from="1576835543632" duration="11151000" />
-      <workItem from="1576914567805" duration="21314000" />
+      <workItem from="1576914567805" duration="30817000" />
+      <workItem from="1577195555952" duration="8124000" />
+      <workItem from="1577799575977" duration="2387000" />
+      <workItem from="1580735230004" duration="435000" />
+      <workItem from="1581354589616" duration="4377000" />
+      <workItem from="1581441160206" duration="5479000" />
+      <workItem from="1581604383725" duration="20000" />
+      <workItem from="1581604682327" duration="2822000" />
+      <workItem from="1581705342162" duration="20000" />
+      <workItem from="1581763955018" duration="1496000" />
+      <workItem from="1581839701973" duration="1753000" />
+      <workItem from="1581877091225" duration="586000" />
+      <workItem from="1581882181324" duration="2206000" />
+      <workItem from="1582024862203" duration="51000" />
+      <workItem from="1582091972820" duration="1165000" />
+      <workItem from="1582814214264" duration="668000" />
+      <workItem from="1582874941013" duration="1038000" />
+      <workItem from="1582964648875" duration="2202000" />
+      <workItem from="1583997119142" duration="2552000" />
+      <workItem from="1584442203705" duration="803000" />
+      <workItem from="1586513148002" duration="2782000" />
+      <workItem from="1588866532761" duration="1599000" />
+      <workItem from="1592574575119" duration="998000" />
+      <workItem from="1594108236504" duration="21385000" />
+      <workItem from="1594133675653" duration="312000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.php" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

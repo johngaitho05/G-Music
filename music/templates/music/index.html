@@ -1,34 +1,34 @@
 {% extends 'music/base.html' %}
-    <title>{% block title %}Viberr{% endblock %}</title>
+<title>{% block title %}G-Music{% endblock %}</title>
 
 
 {% block body %}
-<div class="container">
-    <div class="row">
+    <div class="container">
+        <div class="row">
             {% for album in all_albums  %}
-        <div class="col-sm-4 col-lg-3">
-            <div class="thumbnail">
-                <a href="{% url 'music:detail' album.id%}">
-                    <img src="{{ album.album_logo.url}}" alt="image" class="img-responsive" />
-                </a>
-                <div class="caption">
-                    <h2>{{ album.album_title }}</h2>
-                    <h4>{{ album.artist }}</h4>
-            <a href="{% url 'music:album-update' album.id%}"><button type="button" class="btn btn-primary btn-sm">
-              Edit
-            </button></a>
-            <form action="{% url 'music:album-delete' album.id%}" method="post" style="display: inline">
-            {% csrf_token %}
-            <input type="hidden" name="album_id" value="{{ album.id }}">
-            <button type="submit" class="btn btn-primary btn-sm">
-             Delete
-            </button>
-            </form>
+                <div class="col-sm-4 col-lg-3">
+                    <div class="thumbnail">
+                        <a href="{% url 'music:detail' album.id%}">
+                            <img src="{{ album.album_logo.url}}" alt="image" class="img-responsive" />
+                        </a>
+                        <div class="caption">
+                            <h2>{{ album.album_title }}</h2>
+                            <h4>{{ album.artist }}</h4>
+                            <a href="{% url 'music:album-update' album.id%}"><button type="button" class="btn btn-primary btn-sm">
+                                Edit
+                            </button></a>
+                            <form action="{% url 'music:album-delete' album.id%}" method="post" style="display: inline">
+                                {% csrf_token %}
+                                <input type="hidden" name="album_id" value="{{ album.id }}">
+                                <button type="submit" class="btn btn-primary btn-sm">
+                                    Delete
+                                </button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
-</div>
 
 {% endblock %}

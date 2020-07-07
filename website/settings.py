@@ -29,6 +29,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'crispy_forms',
     'accounts.apps.AccountsConfig',
     'music.apps.MusicConfig',
     'django.contrib.admin',
@@ -124,3 +125,5 @@ STATIC_URL = '/static/'
 # make the following changes to facilitate file upload(images)
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
